@@ -29,11 +29,11 @@ pub struct GameTile {
 
 pub mod map {
     use std::collections::HashMap;
-    use hex::HexCoordsAxial;
+    use hex::HexCoords;
     use super::GameTile;
 
     pub trait GameMap {
-        fn get(&self, &HexCoordsAxial) -> Option<&GameTile>;
+        fn get(&self, &HexCoords) -> Option<&GameTile>;
     }
 
     pub fn new() -> HashGameMap {
@@ -41,11 +41,11 @@ pub mod map {
     }
 
     pub struct HashGameMap {
-        tile_hash_map: HashMap<HexCoordsAxial, GameTile>,
+        tile_hash_map: HashMap<HexCoords, GameTile>,
     }
 
     impl GameMap for HashGameMap {
-        fn get(&self, coords: &HexCoordsAxial) -> Option<&GameTile> {
+        fn get(&self, coords: &HexCoords) -> Option<&GameTile> {
             self.tile_hash_map.get(&coords)
         }
     }
