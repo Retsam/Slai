@@ -1,16 +1,16 @@
 enum TileContent {
     Empty,
-    //Trees
+    // Trees
     CoastTree,
     Tree,
-    //Buildings
+    // Buildings
     Hut,
     Castle,
-    //People
+    // People
     Peasant,
     Knight,
     Lord,
-    King
+    King,
 }
 
 enum Team {
@@ -19,12 +19,12 @@ enum Team {
     Three,
     Four,
     Five,
-    Six
+    Six,
 }
 
 pub struct GameTile {
     content: TileContent,
-    team: Team
+    team: Team,
 }
 
 pub mod map {
@@ -37,13 +37,11 @@ pub mod map {
     }
 
     pub fn new() -> HashGameMap {
-        HashGameMap {
-            tile_hash_map: HashMap::new()
-        }
+        HashGameMap { tile_hash_map: HashMap::new() }
     }
 
     pub struct HashGameMap {
-        tile_hash_map: HashMap<HexCoordsAxial, GameTile>
+        tile_hash_map: HashMap<HexCoordsAxial, GameTile>,
     }
 
     impl GameMap for HashGameMap {

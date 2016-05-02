@@ -4,6 +4,6 @@ mod game;
 mod hex;
 
 fn main() {
-    let _  = game::map::new();
+    let _ = game::map::new();
     println!("Hello World");
 }
