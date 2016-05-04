@@ -1,7 +1,8 @@
 #![allow(dead_code)]
 
-mod game;
-mod hex;
+extern crate slai;
+
+use slai::*;
 
 fn main() {
     let _ = game::map::new();
