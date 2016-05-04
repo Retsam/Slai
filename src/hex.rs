@@ -16,6 +16,13 @@ pub struct HexCoords {
 }
 
 impl HexCoords {
+    fn new(row: i32, col: i32) -> HexCoords {
+        HexCoords {
+            row: row,
+            col: col
+        }
+    }
+
     pub fn from_axial(coords: HexCoordsAxial) -> Self {
         HexCoords {
             row: coords.row,
@@ -43,5 +50,16 @@ impl HexCoords {
             y: -x - z,
             z: z,
         }
+    }
+
+    pub fn get_neighbors(&self) -> [HexCoords; 6] {
+        [
+            HexCoords::new(self.row + 1, self.col),
+            HexCoords::new(self.row + 1, self.col - 1),
+            HexCoords::new(self.row, self.col + 1),
+            HexCoords::new(self.row, self.col - 1),
+            HexCoords::new(self.row - 1, self.col + 1),
+            HexCoords::new(self.row - 1, self.col)
+        ]
     }
 }
